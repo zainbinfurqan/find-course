@@ -14,16 +14,12 @@ export const fetchApis = {
         try {
             const body = new FormData();
             body.append("file", data.image);
-            body.append('data', data);
-            console.log(data,"api")
+            delete data.image
+            body.append('otherData', JSON.stringify(data));
             const response = await fetch(`${constants.Base_URL+'courses'}`, {
             method: "POST",
             body,
-            headers: {
-                'Content-Type': 'multipart/form-data; ',
-              },
             });
-            console.log(response)
         } catch (error) {
             console.log(error)
         }

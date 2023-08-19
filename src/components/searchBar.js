@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchBar(props) {
+function SearchBar({value, handleTextChange,...props}) {
 
     const search=""
 
@@ -8,7 +8,7 @@ function SearchBar(props) {
         <div className='flex items-center justify-center w-full'>
         <div className="flex items-center w-full mx-auto bg-white rounded-lg " x-data="{ search: '' }">
             <div className="w-full">
-                <input type="search" className="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
+                <input onChange={handleTextChange} value={value} type="search" className="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
                     placeholder="search" x-model="search"/>
             </div>
             <div>
